@@ -1,8 +1,11 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    {{ $auth0 }}
-    <a @click="logout">logout</a>
+    <div class="grid grid-cols-4">
+      <div class="col-start-2">
+        <a-button @click="logout">Click me</a-button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -12,7 +15,7 @@ import { defineComponent } from "vue";
 export default defineComponent({
   methods: {
     logout() {
-      console.log(this.$auth0);
+      // / do nothing
     }
   }
 });
