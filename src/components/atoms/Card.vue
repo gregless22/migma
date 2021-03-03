@@ -1,6 +1,6 @@
 <template>
   <div
-    class="max-w-sm bg-white rounded-lg overflow-hidden shadow-lg p-6 border border-gray-800"
+    class="bg-white rounded-lg overflow-hidden shadow-lg p-8 border border-gray-800"
   >
     <slot name="default"></slot>
   </div>

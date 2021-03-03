@@ -5,7 +5,7 @@
   >
     <div class="container px-4 mx-auto">
       <div class="grid gridcols-12 gap-0">
-        <div class="col-span-4 col-start-6">
+        <div class="">
           <o-login></o-login>
         </div>
       </div>

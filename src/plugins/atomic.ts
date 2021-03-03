@@ -16,7 +16,7 @@ export default {
       // Whether or not to look in subfolders
       true,
       // The regular expression used to match base component filenames
-      /(atoms|molecules|organisms)\/[A-Z]\w+\.(vue|js)$/
+      /(atoms|molecules|organisms|templates)\/[A-Z]\w+\.(vue|js)$/
     );
 
     requireComponent.keys().forEach((fileName: string) => {

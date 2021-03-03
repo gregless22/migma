@@ -2,9 +2,13 @@
   <div class="w-full py-40">
     <a-card>
       <form class="m-4">
-        <div class="mb-4">
+        <div class="w-40 mb-16">
+          <a-logo1></a-logo1>
+        </div>
+        <div class="mb-10">
           <h1>Sign into your account</h1>
         </div>
+
         <div class="grid grid-cols-1 gap-6">
           <div>
             <m-form-text
@@ -65,7 +69,7 @@ export default defineComponent({
       });
 
       if (valid) {
-        this.$auth0.loginWithRedirect();
+        console.log("Log them in");
       }
     }
   }

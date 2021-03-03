@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.12.1",
+    "@fortawesome/fontawesome-free": "^5.15.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
