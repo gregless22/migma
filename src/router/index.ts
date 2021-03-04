@@ -4,15 +4,6 @@ import Home from "@/views/Home.vue";
 import Iplant from "@/views/Iplant.vue";
 
 // Templates
-import SiteDetails from "@/components/templates/SiteDetails.vue";
-import Equipment from "@/components/templates/Equipment.vue";
-import Defect from "@/components/templates/Defects.vue";
-import Competency from "@/components/templates/Competencies.vue";
-import Conformity from "@/components/templates/Conformity.vue";
-import Classification from "@/components/templates/Classification.vue";
-import Certificate from "@/components/templates/Certificates.vue";
-import Audit from "@/components/templates/Audits.vue";
-import Calculation from "@/components/templates/Calculations.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -41,63 +32,63 @@ const routes: Array<RouteRecordRaw> = [
         path: "site-details",
         components: {
           default: Iplant,
-          template: SiteDetails
+          template: () => import("@/components/templates/SiteDetails.vue")
         }
       },
       {
         path: "equipment",
         components: {
           default: Iplant,
-          template: Equipment
+          template: () => import("@/components/templates/Equipment.vue")
         }
       },
       {
         path: "defect",
         components: {
           default: Iplant,
-          template: Defect
+          template: () => import("@/components/templates/Defects.vue")
         }
       },
       {
         path: "certificate",
         components: {
           default: Iplant,
-          template: Certificate
+          template: () => import("@/components/templates/Certificates.vue")
         }
       },
       {
         path: "audit",
         components: {
           default: Iplant,
-          template: Audit
+          template: () => import("@/components/templates/Audits.vue")
         }
       },
       {
         path: "classification",
         components: {
           default: Iplant,
-          template: Classification
+          template: () => import("@/components/templates/Classification.vue")
         }
       },
       {
         path: "conformity",
         components: {
           default: Iplant,
-          template: Conformity
+          template: () => import("@/components/templates/Conformity.vue")
         }
       },
       {
         path: "calculation",
         components: {
           default: Iplant,
-          template: Calculation
+          template: () => import("@/components/templates/Calculations.vue")
         }
       },
       {
         path: "competency",
         components: {
           default: Iplant,
-          template: Competency
+          template: () => import("@/components/templates/Competencies.vue")
         }
       }
     ]

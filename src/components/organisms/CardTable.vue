@@ -15,14 +15,16 @@
         </div>
       </div>
     </div>
-    <div class="block w-full overflow-x-auto">
+    <div class="w-full overflow-x-auto flex flex-row flex-nowrap">
       <!-- Projects table -->
-      <table class="items-center w-full bg-transparent border-collapse">
+      <table
+        v-for="item in items"
+        :key="item"
+        class="items-center bg-transparent border-collapse flex-1"
+      >
         <thead>
           <tr>
             <th
-              v-for="(header, i) in headers"
-              :key="i"
               class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
               :class="[
                 color === 'light'
@@ -30,84 +32,35 @@
                   : 'bg-primary text-green-300 border-primary'
               ]"
             >
-              {{ header }}
+              {{ item.header }}
             </th>
           </tr>
         </thead>
+
         <tbody>
-          <tr>
-            <th
+          <tr v-for="(data, i) in item.data" :key="i" class="border-t-2">
+            <td
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left flex items-center"
             >
-              <img class="h-12 w-12 bg-white rounded-full border" alt="..." />
-              <span
+              <!-- <span
                 class="ml-3 font-bold"
                 :class="[color === 'light' ? 'text-gray-700' : 'text-white']"
               >
-                Argon Design System
-              </span>
-            </th>
-            <td
+                {{ data }}
+              </span> -->
+              <component :is="item.component" label="label"></component>
+            </td>
+
+            <!-- <td
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-            >
-              $2,500 USD
-            </td>
-            <td
-              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-            >
-              <i class="fas fa-circle text-orange-500 mr-2"></i> pending
-            </td>
-            <td
-              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-            >
-              <div class="flex">
-                <img
-                  alt="..."
-                  class="w-10 h-10 rounded-full border-2 border-gray-100 shadow"
-                />
-                <img
-                  alt="..."
-                  class="w-10 h-10 rounded-full border-2 border-gray-100 shadow -ml-4"
-                />
-                <img
-                  alt="..."
-                  class="w-10 h-10 rounded-full border-2 border-gray-100 shadow -ml-4"
-                />
-                <img
-                  alt="..."
-                  class="w-10 h-10 rounded-full border-2 border-gray-100 shadow -ml-4"
-                />
-              </div>
-            </td>
-            <td
-              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-            >
-              <div class="flex items-center">
-                <span class="mr-2">60%</span>
-                <div class="relative w-full">
-                  <div
-                    class="overflow-hidden h-2 text-xs flex rounded bg-red-200"
-                  >
-                    <div
-                      style="width: 60%;"
-                      class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td
-              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-right"
-            >
-              <!-- <table-dropdown /> -->
-            </td>
+            ></td> -->
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 </template>
-<script>
+<script lang="ts">
 export default {
   data() {
     return {};
@@ -117,11 +70,12 @@ export default {
   // },
   props: {
     title: String,
-    headers: Array,
-    content: Array,
+    items: { type: Array as () => Array<object> },
+    headers: { type: Array as () => Array<string> },
+    content: { type: Array as () => Array<object> },
     color: {
       default: "light",
-      validator: function(value) {
+      validator: function(value: string): boolean {
         // The value must match one of these strings
         return ["light", "dark"].indexOf(value) !== -1;
       }
