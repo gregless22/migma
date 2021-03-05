@@ -15,7 +15,6 @@
           class="mr-2 text-sm"
           :class="[isActive ? 'opacity-75' : 'text-blue-500', icon]"
         ></div>
-        <slot name="icon"></slot>
         {{ uppercaseLabel }}
       </a>
     </router-link>

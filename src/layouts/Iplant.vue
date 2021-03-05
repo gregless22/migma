@@ -1,7 +1,7 @@
 <template>
   <div class="iplant">
-    <o-navbar />
-    <o-sidebar />
+    <t-navbar />
+    <t-sidebar />
     <main>
       <section class="h-full min-w-min md:ml-64 py-16 px-6 bg-grey">
         <router-view name="template" />

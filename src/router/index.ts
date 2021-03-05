@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 // Pages
-import Home from "@/views/Home.vue";
-import Iplant from "@/views/Iplant.vue";
+import Home from "@/layouts/Home.vue";
+import Iplant from "@/layouts/Iplant.vue";
 
 // Templates
 
@@ -11,15 +11,7 @@ const routes: Array<RouteRecordRaw> = [
     name: "Home",
     component: Home
   },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
-  },
+
   {
     path: "/iplant",
     name: "Iplant",
@@ -32,63 +24,63 @@ const routes: Array<RouteRecordRaw> = [
         path: "site-details",
         components: {
           default: Iplant,
-          template: () => import("@/components/templates/SiteDetails.vue")
+          template: () => import("@/views/SiteDetails.vue")
         }
       },
       {
         path: "equipment",
         components: {
           default: Iplant,
-          template: () => import("@/components/templates/Equipment.vue")
+          template: () => import("@/views/Equipment.vue")
         }
       },
       {
         path: "defect",
         components: {
           default: Iplant,
-          template: () => import("@/components/templates/Defects.vue")
+          template: () => import("@/views/Defects.vue")
         }
       },
       {
         path: "certificate",
         components: {
           default: Iplant,
-          template: () => import("@/components/templates/Certificates.vue")
+          template: () => import("@/views/Certificates.vue")
         }
       },
       {
         path: "audit",
         components: {
           default: Iplant,
-          template: () => import("@/components/templates/Audits.vue")
+          template: () => import("@/views/Audits.vue")
         }
       },
       {
         path: "classification",
         components: {
           default: Iplant,
-          template: () => import("@/components/templates/Classification.vue")
+          template: () => import("@/views/Classification.vue")
         }
       },
       {
         path: "conformity",
         components: {
           default: Iplant,
-          template: () => import("@/components/templates/Conformity.vue")
+          template: () => import("@/views/Conformity.vue")
         }
       },
       {
         path: "calculation",
         components: {
           default: Iplant,
-          template: () => import("@/components/templates/Calculations.vue")
+          template: () => import("@/views/Calculations.vue")
         }
       },
       {
         path: "competency",
         components: {
           default: Iplant,
-          template: () => import("@/components/templates/Competencies.vue")
+          template: () => import("@/views/Competencies.vue")
         }
       }
     ]
