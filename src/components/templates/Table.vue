@@ -16,7 +16,10 @@
         class="items-center w-full bg-transparent border-collapse table-auto"
       >
         <o-table-header :headers="displayHeaders"></o-table-header>
-        <o-table-edit :headers="displayHeaders"></o-table-edit>
+        <o-table-edit
+          :headers="displayHeaders"
+          :hidden="noneSelected"
+        ></o-table-edit>
         <o-table-body :content="content" :headers="displayHeaders">
           <template v-slot:id="{ item }" class="absolute">
             {{ item.id }}</template

@@ -9,7 +9,7 @@
     </div>
     <div class="inline-flex">
       <ul class="flex text-black">
-        <li class="px-2">
+        <!-- <li class="px-2">
           <a-button
             icon="fas fa-trash"
             @click="$emit('delete-selected', $event)"
@@ -25,7 +25,7 @@
             :disabled="buttonDisabled"
             >Edit</a-button
           >
-        </li>
+        </li> -->
         <li class="px-2">
           <m-dropdown>
             <template v-slot:button

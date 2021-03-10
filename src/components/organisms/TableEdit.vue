@@ -1,19 +1,46 @@
 <template>
-  <!-- <tr>
-    <td :colspan="columns" class="fixed top-0 z-30">
-      <p class="inline-flex p-1 mb-2">Edit data for all selected</p>
-      <a-button class="inline-block">Save Changes</a-button>
+  <tr class="w-full h-12" :class="[hidden ? 'hidden' : '']">
+    <td :colspan="columns" class="sticky z-30 w-full px-10 bg-white top-12">
+      <div class="sticky content-center max-w-screen-sm pt-2 left-12">
+        <ul class="flex">
+          <li class="pr-32">
+            <div class="sticky max-w-screen-sm left-12">
+              <p class="pt-2">
+                Edit data for all selected
+              </p>
+            </div>
+          </li>
+          <li class="pr-2">
+            <a-button
+              icon="fas fa-trash"
+              @click="$emit('delete-selected', $event)"
+              :disabled="buttonDisabled"
+              color="red"
+              >Delete</a-button
+            >
+          </li>
+          <li class="pr-2">
+            <a-button
+              icon="fas fa-edit"
+              class=""
+              @click="$emit('update-selected', $event)"
+              :disabled="false"
+              >Save</a-button
+            >
+          </li>
+        </ul>
+      </div>
     </td>
-  </tr> -->
-  <tr class="p-16">
+  </tr>
+  <tr class="p-16" :class="[hidden ? 'hidden' : '']">
     <!-- Need this for the space for the checkbox -->
-    <td class="sticky z-30 text-gray-700 bg-white top-10"></td>
+    <td class="sticky z-30 text-gray-700 bg-white top-24"></td>
     <!-- TODO transition group can do with some work-->
     <transition-group name="tableHeader">
       <td
         v-for="h in headers"
         :key="h.header"
-        class="sticky top-0 z-10 px-1 py-3 text-xs font-semibold text-left text-gray-700 uppercase whitespace-no-wrap align-bottom transition-all duration-150 ease-linear bg-white"
+        class="sticky z-10 px-1 py-3 text-xs font-semibold text-left text-gray-700 uppercase whitespace-no-wrap align-bottom transition-all duration-150 ease-linear bg-white top-24"
       >
         <input
           type="text"
@@ -35,6 +62,10 @@ export default {
   props: {
     headers: {
       type: Array
+    },
+    hidden: {
+      type: Boolean,
+      default: true
     }
   },
   methods: {

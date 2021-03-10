@@ -2,7 +2,7 @@
   <tbody class="mt-12">
     <tr v-for="item in content" :key="item.id" class="even:bg-gray-100 ">
       <th
-        class="sticky left-0 z-20 px-2 bg-white border border-gray-300 even:bg-gray-100"
+        class="sticky left-0 z-20 px-2 bg-white border border-gray-300 top-12 even:bg-gray-100"
       >
         <a-checkbox v-model="item['selected']"></a-checkbox>
       </th>
