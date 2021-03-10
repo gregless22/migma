@@ -1,29 +1,32 @@
 <template>
-  <tbody>
-    <tr
-      v-for="(item, i) in content"
-      :key="i"
-      :class="[i % 2 ? 'bg-gray-100' : 'bg-white']"
-    >
-      <td class="border px-2" :class="[i % 2 ? 'bg-gray-100' : 'bg-white']">
-        <a-checkbox></a-checkbox>
-      </td>
-      <td
-        v-for="(header, j) in headers"
-        :key="j"
-        class="border px-6 align-middle text-xs whitespace-no-wrap p-2 text-left items-center"
-        :class="[header.freeze === true ? 'fixed' : 'relative']"
+  <tbody class="mt-12">
+    <tr v-for="item in content" :key="item.id" class="even:bg-gray-100 ">
+      <th
+        class="sticky left-0 z-20 px-2 bg-white border border-gray-300 even:bg-gray-100"
       >
-        <slot :name="header.value" :item="item">
-          {{ getValue(item, header) }}
-        </slot>
-      </td>
+        <a-checkbox v-model="item['selected']"></a-checkbox>
+      </th>
+      <transition-group name="tableData">
+        <td
+          v-for="(header, j) in headers"
+          :key="j"
+          class="items-center p-2 px-6 text-xs text-left whitespace-no-wrap align-middle transition-all duration-150 ease-linear border"
+          :class="[header.freeze === true ? 'fixed' : 'relative']"
+        >
+          <slot :name="header.value" :item="item">
+            {{ getValue(item, header) }}
+          </slot>
+        </td>
+      </transition-group>
     </tr>
   </tbody>
 </template>
 
 <script>
 export default {
+  data() {
+    return {};
+  },
   props: {
     content: { type: Array },
     headers: {

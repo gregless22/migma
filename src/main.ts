@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 // import auth0 from "./auth";
+import toast from "vue-dk-toast";
 import axios from "./plugins/axios";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import atomic from "./plugins/atomic";
@@ -13,5 +14,6 @@ createApp(App)
   .use(store)
   .use(router)
   .use(axios)
+  .use(toast)
   // .use(auth0)
   .mount("#app");

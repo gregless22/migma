@@ -1,7 +1,7 @@
 <template>
   <div>
     <a
-      class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+      class="flex items-center px-3 py-4 text-xs font-bold text-gray-800 uppercase lg:text-white lg:hover:text-gray-300 lg:py-2"
       href="#pablo"
       ref="btnDropdownRef"
       v-on:click="toggleDropdown($event)"
@@ -10,74 +10,74 @@
     </a>
     <div
       ref="popoverDropdownRef"
-      class="bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
+      class="z-50 float-left py-2 text-base text-left list-none bg-white rounded shadow-lg min-w-48"
       v-bind:class="{
         hidden: !dropdownPopoverShow,
         block: dropdownPopoverShow
       }"
     >
       <span
-        class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-no-wrap bg-transparent text-gray-500"
+        class="block w-full px-4 pt-2 pb-0 text-sm font-bold text-gray-500 whitespace-no-wrap bg-transparent"
       >
         Admin Layout
       </span>
       <router-link
         to="/admin/dashboard"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        class="block w-full px-4 py-2 text-sm font-normal text-gray-800 whitespace-no-wrap bg-transparent"
       >
         Dashboard
       </router-link>
       <router-link
         to="/admin/settings"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        class="block w-full px-4 py-2 text-sm font-normal text-gray-800 whitespace-no-wrap bg-transparent"
       >
         Settings
       </router-link>
       <router-link
         to="/admin/tables"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        class="block w-full px-4 py-2 text-sm font-normal text-gray-800 whitespace-no-wrap bg-transparent"
       >
         Tables
       </router-link>
       <router-link
         to="/admin/maps"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        class="block w-full px-4 py-2 text-sm font-normal text-gray-800 whitespace-no-wrap bg-transparent"
       >
         Maps
       </router-link>
-      <div class="h-0 mx-4 my-2 border border-solid border-gray-200" />
+      <div class="h-0 mx-4 my-2 border border-gray-200 border-solid" />
       <span
-        class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-no-wrap bg-transparent text-gray-500"
+        class="block w-full px-4 pt-2 pb-0 text-sm font-bold text-gray-500 whitespace-no-wrap bg-transparent"
       >
         Auth Layout
       </span>
       <router-link
         to="/auth/login"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        class="block w-full px-4 py-2 text-sm font-normal text-gray-800 whitespace-no-wrap bg-transparent"
       >
         Login
       </router-link>
       <router-link
         to="/auth/register"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        class="block w-full px-4 py-2 text-sm font-normal text-gray-800 whitespace-no-wrap bg-transparent"
       >
         Register
       </router-link>
-      <div class="h-0 mx-4 my-2 border border-solid border-gray-200" />
+      <div class="h-0 mx-4 my-2 border border-gray-200 border-solid" />
       <span
-        class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-no-wrap bg-transparent text-gray-500"
+        class="block w-full px-4 pt-2 pb-0 text-sm font-bold text-gray-500 whitespace-no-wrap bg-transparent"
       >
         No Layout
       </span>
       <router-link
         to="/landing"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        class="block w-full px-4 py-2 text-sm font-normal text-gray-800 whitespace-no-wrap bg-transparent"
       >
         Lading
       </router-link>
       <router-link
         to="/profile"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        class="block w-full px-4 py-2 text-sm font-normal text-gray-800 whitespace-no-wrap bg-transparent"
       >
         Profile
       </router-link>

@@ -3,7 +3,7 @@
     <t-navbar />
     <t-sidebar />
     <main>
-      <section class="h-full min-w-min md:ml-64 py-16 px-6 bg-grey">
+      <section class="h-screen px-6 py-16 min-w-min md:ml-64 bg-grey">
         <router-view name="template" />
         <!-- <o-footer /> -->
       </section>

@@ -309,7 +309,9 @@ module.exports = {
     height: theme => ({
       auto: "auto",
       ...theme("spacing"),
+
       full: "100%",
+      90: "90%",
       screen: "100vh"
     }),
     inset: {
@@ -694,7 +696,7 @@ module.exports = {
     appearance: ["responsive"],
     backgroundAttachment: ["responsive"],
     backgroundClip: ["responsive"],
-    backgroundColor: ["responsive", "hover", "focus"],
+    backgroundColor: ["responsive", "hover", "focus", "odd", "even"],
     backgroundImage: ["responsive"],
     gradientColorStops: ["responsive", "hover", "focus"],
     backgroundOpacity: ["responsive", "hover", "focus"],
@@ -702,7 +704,7 @@ module.exports = {
     backgroundRepeat: ["responsive"],
     backgroundSize: ["responsive"],
     borderCollapse: ["responsive"],
-    borderColor: ["responsive", "hover", "focus"],
+    borderColor: ["responsive", "hover", "focus", "odd", "visited"],
     borderOpacity: ["responsive", "hover", "focus"],
     borderRadius: ["responsive"],
     borderStyle: ["responsive"],

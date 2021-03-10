@@ -1,27 +1,40 @@
 <template>
-  <thead class="">
+  <thead>
     <tr>
-      <th class="border bg-gray-100 text-gray-600 border-gray-200">
-        <a-checkbox @click="click"></a-checkbox>
-      </th>
+      <!-- Need this for the space for the checkbox -->
       <th
-        v-for="h in headers"
-        :key="h.header"
-        class="px-6 align-middle border py-3 text-xs uppercase border-r-0 bg-gray-100 text-gray-600 border-gray-200 whitespace-no-wrap font-semibold text-left"
-      >
-        {{ h.header }}
-      </th>
+        class="sticky top-0 z-20 text-gray-700 bg-gray-300 border border-gray-400"
+      ></th>
+      <!-- TODO transition group can do with some work-->
+      <transition-group name="tableHeader">
+        <th
+          v-for="h in headers"
+          :key="h.header"
+          class="sticky top-0 z-10 max-w-lg px-6 py-3 text-xs font-semibold text-center text-gray-700 uppercase whitespace-no-wrap align-middle transition-all duration-150 ease-linear bg-gray-300 border border-gray-400"
+        >
+          {{ h.header }}
+        </th>
+      </transition-group>
     </tr>
   </thead>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-export default defineComponent({
+<script>
+export default {
+  data() {
+    return {
+      selectAll: false
+    };
+  },
   props: {
     headers: {
-      type: Array as () => Array<object>
+      type: Array
+    }
+  },
+  methods: {
+    change() {
+      console.log("Event HEre", this.selectAll);
     }
   }
-});
+};
 </script>
