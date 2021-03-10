@@ -1,13 +1,13 @@
 <template>
-  <tr>
-    <td :colspan="columns" class="sticky top-auto z-20">
+  <!-- <tr>
+    <td :colspan="columns" class="fixed top-0 z-30">
       <p class="inline-flex p-1 mb-2">Edit data for all selected</p>
       <a-button class="inline-block">Save Changes</a-button>
     </td>
-  </tr>
+  </tr> -->
   <tr class="p-16">
     <!-- Need this for the space for the checkbox -->
-    <td class="sticky top-0 z-10 text-gray-700 bg-white"></td>
+    <td class="sticky z-30 text-gray-700 bg-white top-10"></td>
     <!-- TODO transition group can do with some work-->
     <transition-group name="tableHeader">
       <td
