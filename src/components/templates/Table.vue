@@ -4,9 +4,6 @@
       class="w-full mt-6 bg-white"
       :headers="headers"
       :title="title"
-      :buttonDisabled="noneSelected"
-      @delete-selected="$emit('delete-selected', $event)"
-      @update-selected="$emit('update-selected', $event)"
     ></o-table-title>
 
     <div
@@ -19,12 +16,21 @@
         <o-table-edit
           :headers="displayHeaders"
           :hidden="noneSelected"
+          @delete-selected="$emit('delete-selected', $event)"
+          @update-selected="$emit('update-selected', $event)"
         ></o-table-edit>
-        <o-table-body :content="content" :headers="displayHeaders">
+        <o-table-body
+          :content="flatContent"
+          :headers="displayHeaders"
+          @selected="changeSelected"
+        >
           <template v-slot:id="{ item }" class="absolute">
             {{ item.id }}</template
           >
         </o-table-body>
+        <pre>
+        {{ selectedContent }}
+        </pre>
       </table>
     </div>
   </div>
@@ -34,12 +40,19 @@
 export default {
   emits: ["delete-selected", "update-selected"],
   data() {
-    return {};
+    return {
+      selected: Array(this.content.length).fill(false)
+    };
   },
   props: {
     title: String,
     headers: { type: Array },
     content: { type: Array }
+  },
+  methods: {
+    changeSelected(e) {
+      console.log(e);
+    }
   },
   computed: {
     displayHeaders() {
@@ -47,6 +60,14 @@ export default {
     },
     noneSelected() {
       return !this.content.some(e => e.selected);
+    },
+    selectedContent() {
+      return this.content.filter(e => e.selected);
+    },
+    flatContent() {
+      return this.content.map(e => {
+        return this.$flat.flatten(e);
+      });
     }
   }
 };

@@ -9,23 +9,6 @@
     </div>
     <div class="inline-flex">
       <ul class="flex text-black">
-        <!-- <li class="px-2">
-          <a-button
-            icon="fas fa-trash"
-            @click="$emit('delete-selected', $event)"
-            :disabled="buttonDisabled"
-            >Delete</a-button
-          >
-        </li>
-        <li class="px-2">
-          <a-button
-            icon="fas fa-edit"
-            class=""
-            @click="$emit('update-selected', $event)"
-            :disabled="buttonDisabled"
-            >Edit</a-button
-          >
-        </li> -->
         <li class="px-2">
           <m-dropdown>
             <template v-slot:button
@@ -52,15 +35,10 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 export default defineComponent({
-  emits: ["delete-selected", "update-selected"],
   props: {
     title: {
       type: String,
       default: "Title"
-    },
-    buttonDisabled: {
-      type: Boolean,
-      default: true
     },
     headers: {
       type: Array as () => Array<object>

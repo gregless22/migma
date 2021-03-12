@@ -14,7 +14,6 @@
             <a-button
               icon="fas fa-trash"
               @click="$emit('delete-selected', $event)"
-              :disabled="buttonDisabled"
               color="red"
               >Delete</a-button
             >
@@ -23,8 +22,7 @@
             <a-button
               icon="fas fa-edit"
               class=""
-              @click="$emit('update-selected', $event)"
-              :disabled="false"
+              @click="$emit('update-selected', editedContent)"
               >Save</a-button
             >
           </li>
@@ -54,9 +52,11 @@
 
 <script>
 export default {
+  emits: ["delete-selected", "update-selected"],
   data() {
     return {
-      selectAll: false
+      selectAll: false,
+      editedContent: {}
     };
   },
   props: {
@@ -68,11 +68,7 @@ export default {
       default: true
     }
   },
-  methods: {
-    change() {
-      console.log("Event HEre", this.selectAll);
-    }
-  },
+  methods: {},
   computed: {
     columns() {
       return this.headers.length;
