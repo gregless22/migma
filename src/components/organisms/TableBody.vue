@@ -1,10 +1,12 @@
 <template>
   <tbody class="mt-12">
-    <tr v-for="(item, i) in content" :key="item.id" class="even:bg-gray-100 ">
+    <tr v-for="item in content" :key="item.id" class="even:bg-gray-100 ">
       <th
         class="sticky left-0 z-20 px-2 bg-white border border-gray-300 top-12 even:bg-gray-100"
       >
-        <a-checkbox @change="$emit('selected', i, $event)"></a-checkbox>
+        <a-checkbox
+          @change="changeSelected($event.target.checked, item.id)"
+        ></a-checkbox>
       </th>
       <transition-group name="tableData">
         <td
@@ -27,7 +29,7 @@ export default {
   emits: ["selected"],
   data() {
     return {
-      selected: Array(this.content.length).fill(false)
+      toggled: this.selected
     };
   },
   props: {
@@ -35,9 +37,24 @@ export default {
     headers: {
       type: Array,
       required: true
+    },
+    selected: {
+      type: Array
     }
   },
   computed: {},
-  methods: {}
+  methods: {
+    changeSelected(value, i) {
+      if (value) {
+        this.toggled.push(i);
+      } else {
+        this.toggled.find((e, j) => {
+          if (e == i) {
+            this.toggled.splice(j, 1);
+          }
+        });
+      }
+    }
+  }
 };
 </script>

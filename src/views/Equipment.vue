@@ -5,61 +5,105 @@
     :headers="headers"
     @delete-selected="deleteEquipment"
     @update-selected="updateEquipment"
+    v-model:selected="equipmentSelected"
   ></t-table>
 </template>
 
 <script>
-import { Equipment, headers } from "@/models/Equipment";
+import { Equipment, headers } from "@/models/Equipment.js";
 export default {
   data() {
     return {
       equipment: [],
       headerSelect: [],
-      headers: headers,
-      newequipment: new Equipment({})
+      equipmentSelected: [],
+      headers: headers
     };
   },
   created() {
     this.$axios
       .get("/equipments")
       .then(resp =>
-        resp.data.forEach(e => this.equipment.push(new Equipment(e)))
+        resp.data.forEach(e =>
+          this.equipment.push(Object.assign(new Equipment(), e))
+        )
       )
       .catch(err => console.log(err));
   },
   methods: {
-    deleteEquipment(e) {
-      // need to make a copy of the array.  Otherwise it ruins the async and deletes before looping throught the array
-      const equipmentCopy = this.equipment.map(e => e);
-
-      equipmentCopy.forEach(element => {
-        if (element.selected) {
-          this.$axios
-            .delete(`/equipment/${element.id}`)
-            .then(() => {
-              this.equipment.find((e, i, a) => {
-                if (e.id == element.id) {
-                  a.splice(i, 1);
-                  return true;
-                }
-              });
-              this.$toast("Equipment has been removed", {
-                type: "success"
-              });
-            }) //TODO delete from the array
-            .catch(err => {
-              this.$toast(err, {
-                type: "error"
-              });
+    deleteEquipment() {
+      this.equipmentSelected.forEach(e => {
+        this.$axios
+          .delete(`/equipment/${e}`)
+          .then(() => {
+            this.equipment.find((j, i, a) => {
+              if (e == j.id) {
+                a.splice(i, 1);
+                return true;
+              }
             });
-        }
+            this.$toast("Equipment has been removed", {
+              type: "success"
+            });
+          }) //TODO delete from the array
+          .catch(err => {
+            this.$toast(err, {
+              type: "error"
+            });
+          })
+          .finally(() => {
+            this.equipmentSelected.find((f, i, a) => {
+              if (e == f) {
+                a.splice(i, 1);
+                return true;
+              }
+            });
+          });
       });
-
-      console.log(this.equipment.filter(e => e.selected));
-      console.log("yes it propagates", e);
     },
-    updateEquipment(e) {
-      console.log("yes it is here", e);
+    updateEquipment(change) {
+      this.equipmentSelected.forEach(e => {
+        // get a copy of the old one
+        const oldEquipment = this.$flat.flatten(
+          this.equipment.find(f => f.id == e)
+        );
+
+        const newEquipment = this.$flat.unflatten({
+          ...oldEquipment,
+          ...change
+        });
+
+        this.$axios
+          .put(`/equipment/${e}`, newEquipment)
+          .then(() => {
+            this.equipment.find((eq, i) => {
+              if (eq.id === e) {
+                this.equipment.splice(
+                  i,
+                  1,
+                  Object.assign(new Equipment(), newEquipment)
+                );
+                return true;
+              }
+            });
+            this.$toast("Equipment has been updated", {
+              type: "success"
+            });
+          }) //TODO delete from the array
+          .catch(err => {
+            this.$toast(err, {
+              type: "error"
+            });
+          })
+          .finally(() => {
+            this.equipmentSelected.find((f, i, a) => {
+              if (e == f) {
+                a.splice(i, 1);
+                return true;
+              }
+            });
+          });
+      });
     }
   },
   computed: {}

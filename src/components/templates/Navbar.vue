@@ -1,10 +1,10 @@
 <template>
   <!-- Navbar -->
   <nav
-    class="fixed left-0 top-0 items-center justify-between w-full z-10 flex h-16 p-1 bg-secondary bg-opacity-90 shadow-xl"
+    class="fixed top-0 left-0 z-10 flex items-center justify-between w-full h-16 p-1 shadow-xl bg-secondary bg-opacity-90"
   >
     <div
-      class="w-full mx-auto items-center flex justify-between flex-wrap md:px-10 px-4"
+      class="flex flex-wrap items-center justify-between w-full px-4 mx-auto md:px-10"
     >
       <a-logo2 />
       <!-- Brand -->
@@ -12,23 +12,8 @@
         <h1>iPLANT</h1>
       </div>
 
-      <!-- Form -->
-      <form class="md:flex hidden flex-row flex-wrap items-end mr-3">
-        <div class="relative flex w-full flex-wrap items-stretch">
-          <span
-            class="z-10 h-full leading-snug font-normal absolute text-center text-gray-400 bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3"
-          >
-            <i class="fas fa-search"></i>
-          </span>
-          <input
-            type="text"
-            placeholder="Search here..."
-            class="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
-          />
-        </div>
-      </form>
       <!-- User -->
-      <!-- <ul class="flex-col md:flex-row list-none items-center hidden md:flex">
+      <!-- <ul class="flex-col items-center hidden list-none md:flex-row md:flex">
         <user-dropdown />
       </ul> -->
     </div>

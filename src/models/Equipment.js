@@ -3,19 +3,11 @@
 // }
 
 class TableHeaders {
-  header: string;
-  lookupValue: string;
-  display: boolean;
+  header;
+  lookupValue;
+  display;
 
-  constructor({
-    header,
-    lookupValue,
-    display = true
-  }: {
-    header: string;
-    lookupValue: string;
-    display: boolean;
-  }) {
+  constructor({ header, lookupValue, display = true }) {
     this.header = header;
     this.lookupValue = lookupValue;
     this.display = display;
@@ -23,9 +15,9 @@ class TableHeaders {
 }
 
 export class Equipment {
-  id?: string;
-  areaDetails?: AreaDetails;
-  equipmentDetails?: EquipmentDetails;
+  id;
+  areaDetails;
+  equipmentDetails;
   //   InpsectionDetails: InpsectionDetails;
   //   dbEvents: DBEvents;
 
@@ -71,129 +63,117 @@ export class Equipment {
   }
 }
 
-class AreaDetails {
-  tag?: string;
-  area?: string;
-  system?: string;
-  description?: string;
-  siteID?: string;
-  pid?: string;
-  calculation?: string;
-  layout?: string;
+// class AreaDetails {
+//   tag;
+//   area;
+//   system;
+//   description;
+//   siteID;
+//   pid;
+//   calculation;
+//   layout;
 
-  toObject() {
-    const obj = Object.assign({});
-    for (const [key, value] of Object.entries(this)) {
-      if (typeof value == "object") {
-        obj[key] = value.toObject();
-      } else {
-        obj[key] = value;
-      }
-    }
-    return obj;
-  }
+//   constructor({
+//     tag,
+//     area,
+//     system,
+//     description,
+//     siteID,
+//     pid,
+//     calculation,
+//     layout
+//   }: {
+//     tag: string;
+//     area: string;
+//     system: string;
+//     description: string;
+//     siteID: string;
+//     pid: string;
+//     calculation: string;
+//     layout: string;
+//   }) {
+//     this.tag = tag;
+//     this.area = area;
+//     this.system = system;
+//     this.description = description;
+//     this.siteID = siteID;
+//     this.pid = pid;
+//     this.calculation = calculation;
+//     this.layout = layout;
+//   }
+// }
 
-  //   constructor({
-  //     tag,
-  //     area,
-  //     system,
-  //     description,
-  //     siteID,
-  //     pid,
-  //     calculation,
-  //     layout
-  //   }: {
-  //     tag: string;
-  //     area: string;
-  //     system: string;
-  //     description: string;
-  //     siteID: string;
-  //     pid: string;
-  //     calculation: string;
-  //     layout: string;
-  //   }) {
-  //     this.tag = tag;
-  //     this.area = area;
-  //     this.system = system;
-  //     this.description = description;
-  //     this.siteID = siteID;
-  //     this.pid = pid;
-  //     this.calculation = calculation;
-  //     this.layout = layout;
-  //   }
-}
+// class EquipmentDetails {
+//   make;
+//   model;
+//   description;
+//   serialNumber;
+//   protection;
+//   gasGroup;
+//   tempClass;
+//   equipmentIP;
+//   cad;
+//   mdp;
+//   flc;
+//   designTerminals;
+//   comments;
+//   barriers;
+//   fittings;
 
-class EquipmentDetails {
-  make?: string;
-  model?: string;
-  description?: string;
-  serialNumber?: string;
-  protection?: string;
-  gasGroup?: string;
-  tempClass?: string;
-  equipmentIP?: string;
-  cad?: string;
-  mdp?: string;
-  flc?: string;
-  designTerminals?: string;
-  comments?: string;
-  barriers?: Array<Barrier>;
-  fittings?: Array<Fitting>;
+//   constructor({
+//     make,
+//     model,
+//     description,
+//     serialNumber,
+//     protection,
+//     gasGroup,
+//     tempClass,
+//     equipmentIP,
+//     cad,
+//     mdp,
+//     flc,
+//     designTerminals,
+//     comments,
+//     barriers,
+//     fittings
+//   }: {
+//     make: string;
+//     model: string;
+//     description: string;
+//     serialNumber: string;
+//     protection: string;
+//     gasGroup: string;
+//     tempClass: string;
+//     equipmentIP: string;
+//     cad: string;
+//     mdp: string;
+//     flc: string;
+//     designTerminals: string;
+//     comments: string;
+//     barriers: Array<Barrier>;
+//     fittings: Array<Fitting>;
+//   }) {
+//     this.make = make;
+//     this.model = model;
+//     this.description = description;
+//     this.serialNumber = serialNumber;
+//     this.protection = protection;
+//     this.gasGroup = gasGroup;
+//     this.tempClass = tempClass;
+//     this.equipmentIP = equipmentIP;
+//     this.cad = cad;
+//     this.mdp = mdp;
+//     this.flc = flc;
+//     this.designTerminals = designTerminals;
+//     this.comments = comments;
+//     this.barriers = barriers;
+//     this.fittings = fittings;
+//   }
+// }
 
-  //   constructor({
-  //     make,
-  //     model,
-  //     description,
-  //     serialNumber,
-  //     protection,
-  //     gasGroup,
-  //     tempClass,
-  //     equipmentIP,
-  //     cad,
-  //     mdp,
-  //     flc,
-  //     designTerminals,
-  //     comments,
-  //     barriers,
-  //     fittings
-  //   }: {
-  //     make: string;
-  //     model: string;
-  //     description: string;
-  //     serialNumber: string;
-  //     protection: string;
-  //     gasGroup: string;
-  //     tempClass: string;
-  //     equipmentIP: string;
-  //     cad: string;
-  //     mdp: string;
-  //     flc: string;
-  //     designTerminals: string;
-  //     comments: string;
-  //     barriers: Array<Barrier>;
-  //     fittings: Array<Fitting>;
-  //   }) {
-  //     this.make = make;
-  //     this.model = model;
-  //     this.description = description;
-  //     this.serialNumber = serialNumber;
-  //     this.protection = protection;
-  //     this.gasGroup = gasGroup;
-  //     this.tempClass = tempClass;
-  //     this.equipmentIP = equipmentIP;
-  //     this.cad = cad;
-  //     this.mdp = mdp;
-  //     this.flc = flc;
-  //     this.designTerminals = designTerminals;
-  //     this.comments = comments;
-  //     this.barriers = barriers;
-  //     this.fittings = fittings;
-  //   }
-}
+// class Fitting {}
 
-class Fitting {}
-
-class Barrier {}
+// class Barrier {}
 
 // class InpsectionDetails {
 //   "inspectionIDs": string;
@@ -202,11 +182,11 @@ class Barrier {}
 // }
 
 export class DBEvents {
-  "createdAt": Date;
-  "updatedAt": Date;
-  "removedAt": Date;
-  "renewedAt": Date;
-  "lastOnline": Date;
+  createdAt;
+  updatedAt;
+  removedAt;
+  renewedAt;
+  lastOnline;
 }
 
 // TODO make a better formula for this

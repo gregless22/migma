@@ -13,24 +13,22 @@
         class="items-center w-full bg-transparent border-collapse table-auto"
       >
         <o-table-header :headers="displayHeaders"></o-table-header>
-        <o-table-edit
-          :headers="displayHeaders"
-          :hidden="noneSelected"
-          @delete-selected="$emit('delete-selected', $event)"
-          @update-selected="$emit('update-selected', $event)"
-        ></o-table-edit>
+
         <o-table-body
           :content="flatContent"
           :headers="displayHeaders"
-          @selected="changeSelected"
+          :selected="selected"
         >
           <template v-slot:id="{ item }" class="absolute">
             {{ item.id }}</template
           >
         </o-table-body>
-        <pre>
-        {{ selectedContent }}
-        </pre>
+        <o-table-edit
+          :headers="displayHeaders"
+          :hidden="selected.length > 0 ? false : true"
+          @delete-selected="$emit('delete-selected')"
+          @update-selected="$emit('update-selected', $event)"
+        ></o-table-edit>
       </table>
     </div>
   </div>
@@ -38,22 +36,19 @@
 
 <script>
 export default {
-  emits: ["delete-selected", "update-selected"],
+  emits: ["delete-selected", "update-selected", "update:selected"],
   data() {
     return {
-      selected: Array(this.content.length).fill(false)
+      tableSelected: this.selected
     };
   },
   props: {
     title: String,
     headers: { type: Array },
-    content: { type: Array }
+    content: { type: Array },
+    selected: { type: Array }
   },
-  methods: {
-    changeSelected(e) {
-      console.log(e);
-    }
-  },
+  methods: {},
   computed: {
     displayHeaders() {
       return this.headers.filter(e => e.display);
