@@ -9,6 +9,7 @@
     </div>
     <div class="inline-flex">
       <ul class="flex text-black">
+        <li>Excel</li>
         <li class="px-2">
           <m-dropdown>
             <template v-slot:button
