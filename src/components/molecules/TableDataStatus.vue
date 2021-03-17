@@ -2,7 +2,7 @@
   <i class="fas fa-circle text-orange-500 mr-2"></i> {{ label }}
 </template>
 
-<script lang="ts">
+<script">
 import { defineComponent } from "vue";
 export default defineComponent({
   data() {

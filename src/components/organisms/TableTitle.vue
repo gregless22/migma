@@ -33,7 +33,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 export default defineComponent({
   props: {
@@ -42,7 +42,7 @@ export default defineComponent({
       default: "Title"
     },
     headers: {
-      type: Array as () => Array<object>
+      type: Array
     }
   },
   methods: {}

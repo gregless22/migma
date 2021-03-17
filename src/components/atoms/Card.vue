@@ -1,12 +1,12 @@
 <template>
   <div
-    class="bg-white rounded-lg overflow-hidden shadow-lg p-8 border border-gray-800"
+    class="p-8 overflow-hidden bg-white border border-gray-800 rounded-lg shadow-lg"
   >
     <slot name="default"></slot>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 export default defineComponent({});
 </script>

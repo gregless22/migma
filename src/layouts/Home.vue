@@ -13,8 +13,8 @@
   </div>
 </template>
 
-<script lang="ts">
-const background = require("@/assets/topography.svg") as string;
+<script>
+import background from "@/assets/topography.svg";
 // const background = require("@/assets/logo.png") as string;
 
 import { defineComponent } from "vue";
@@ -28,7 +28,17 @@ export default defineComponent({
   },
   methods: {
     signin() {
-      this.$auth.createUserWithEmailAndPassword(email, password);
+      // this.$auth
+      //   .signInWithEmailAndPassword(email, password)
+      //   .then(userCredential => {
+      //     // Signed in
+      //     var user = userCredential.user;
+      //     // ...
+      //   })
+      //   .catch(error => {
+      //     var errorCode = error.code;
+      //     var errorMessage = error.message;
+      //   });
     }
   }
 });

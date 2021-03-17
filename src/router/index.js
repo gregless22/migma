@@ -1,11 +1,11 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 // Pages
 import Home from "@/layouts/Home.vue";
 import Iplant from "@/layouts/Iplant.vue";
 
 // Templates
 
-const routes: Array<RouteRecordRaw> = [
+const routes = [
   {
     path: "/",
     name: "Home",

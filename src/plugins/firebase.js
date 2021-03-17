@@ -1,9 +1,8 @@
-import { App } from "vue";
-import firebase from "@firebase/app";
+import firebase from "firebase";
 // import 'firebase/analytics'
 // TODO delete the analytics as it wont be necessary
-import { Auth } from "@firebase/auth";
-import "@firebase/storage";
+import "firebase/auth";
+import "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAjU5h1PASgnfcEYx6Tn5FSCPyzwsXLm-U",
@@ -15,18 +14,18 @@ const firebaseConfig = {
   measurementId: "G-N5FX2W0FLN"
 };
 
-firebase.initializeApp(firebaseConfig);
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-declare module "@vue/runtime-core" {
-  export interface ComponentCustomProperties {
-    // $storage: typeof firebase.storage.Storage;
-    $auth: typeof firebase.auth.Auth;
-  }
-}
+// declare module "@vue/runtime-core" {
+//   export interface ComponentCustomProperties {
+//     // $storage: typeof firebase.storage.Storage;
+//     $auth: typeof Auth;
+//   }
+// }
 
 export default {
-  install: (app) => {
-    app.config.globalProperties.$auth = firebase.auth();
-    app.config.globalProperties.$storage = firebase.storage();
+  install: app => {
+    app.config.globalProperties.$auth = firebaseApp.auth();
+    app.config.globalProperties.$storage = firebaseApp.storage();
   }
 };

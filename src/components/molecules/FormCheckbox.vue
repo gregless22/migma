@@ -3,7 +3,7 @@
   <span class="ml-2 text-gray-800 text-sm">{{ label }}</span>
 </template>
 
-<script lang="ts">
+<script">
 import { defineComponent } from "vue";
 export default defineComponent({
   props: {

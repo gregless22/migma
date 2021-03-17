@@ -2,8 +2,8 @@
   <img alt="..." :src="logo" class="object-center" />
 </template>
 
-<script lang="ts">
-const logo = require("@/assets/cte-logo-18.jpg") as string;
+<script>
+import logo from "@/assets/cte-logo-18.jpg";
 
 import { defineComponent } from "vue";
 

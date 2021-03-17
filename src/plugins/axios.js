@@ -1,16 +1,16 @@
-import { App } from "vue";
+// import { App } from "vue";
 import axios from "axios";
 
 const BASE_URL = "http://localhost:9010";
 
-declare module "@vue/runtime-core" {
-  export interface ComponentCustomProperties {
-    $axios: typeof axios;
-  }
-}
+// declare module "@vue/runtime-core" {
+//   export interface ComponentCustomProperties {
+//     $axios: typeof axios;
+//   }
+// }
 
 export default {
-  install: (app: App) => {
+  install: app => {
     // TODO get the env variables from the container
     // let headers = new HttpHeaders({
     //   "Content-Type": "application/json",
