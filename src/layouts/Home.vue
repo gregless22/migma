@@ -4,7 +4,7 @@
     :style="`background-image: url('${background}');`"
   >
     <div class="container px-4 mx-auto">
-      <div class="grid gridcols-12 gap-0">
+      <div class="grid gap-0 gridcols-12">
         <div class="">
           <o-login></o-login>
         </div>
@@ -25,6 +25,11 @@ export default defineComponent({
     return {
       background
     };
+  },
+  methods: {
+    signin() {
+      this.$auth.createUserWithEmailAndPassword(email, password);
+    }
   }
 });
 </script>

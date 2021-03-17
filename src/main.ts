@@ -2,7 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-// import auth0 from "./auth";
+import firebase from "./plugins/firebase";
 import flat from "./plugins/flatten";
 import toast from "vue-dk-toast";
 import axios from "./plugins/axios";
@@ -17,5 +17,5 @@ createApp(App)
   .use(axios)
   .use(toast)
   .use(flat)
-  // .use(auth0)
+  .use(firebase)
   .mount("#app");

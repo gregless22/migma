@@ -34,7 +34,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx", "src/auth/index.ts"
-, "src/models/Equipment.js"  ],
+, "src/models/Equipment.js", "src/plugins/firebase.js"  ],
   "exclude": [
     "node_modules"
   ]
